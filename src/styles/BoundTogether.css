@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "Aubrey Pro";
+  src: local("Aubrey Pro"), url("../fonts/Aubrey Pro/AubreyPro.otf");
+  font-weight: bold;
+}
+.Page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #F2F4F6;
+  color: #333333;
+  height: 100%;
+}
+
+.Link {
+  text-decoration: none;
+  color: #F2F4F6;
+}
+
+.Navbar, .Navbar .Opened {
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  background-color: #519872;
+  color: white;
+}
+.Navbar .Opened {
+  color: #282c34;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.Form.Request {
+  background-color: #519872;
+}
+
+.Footer {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  position: sticky;
+  bottom: 0;
+  background-color: #519872;
+  color: white;
+}
+
+.Input {
+  width: 100%;
+}
+
+.About {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MainPageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.HelpCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 350px;
+  width: 350px;
+  border-left: 1px solid #8FBF4D;
+  border-right: 1px solid #8FBF4D;
+  border-top: 1px solid #8FBF4D;
+  border-bottom: 1px solid #8FBF4D;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.25);
+}
+.HelpCard img {
+  height: 250px;
+  width: 250px;
+  border: 1px solid #8FBF4D;
+  border-radius: 5px;
+}
+
+.ReviewCarousel {
+  width: 90%;
+  padding-bottom: 25px;
+}
+
+.ReviewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 600px;
+  width: 100%;
+  border-left: 1px solid #8FBF4D;
+  border-right: 1px solid #8FBF4D;
+  border-top: 1px solid #8FBF4D;
+  border-bottom: 1px solid #8FBF4D;
+  border-radius: 10px;
+  cursor: default;
+  margin: 10px auto;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.25);
+}
+.ReviewCard img {
+  height: 250px;
+  width: 250px;
+  border: 1px solid #8FBF4D;
+  border-radius: 5px;
+}
+
+.ReviewHeader {
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ReviewTheme {
+  font-size: 24px;
+  align-self: center;
+}
+
+.ReviewUserName {
+  align-self: flex-end;
+  font-size: 18px;
+}
+
+.ReviewDate {
+  align-self: flex-end;
+}
+
+.ReviewText {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #8FBF4D;
+  border-bottom: 1px solid #8FBF4D;
+  border-radius: 20px;
+}
+
+.ReviewNumber {
+  margin-left: 25px;
+}
+
+.ReviewRate {
+  display: flex;
+  width: 100%;
+  margin-right: 25px;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.Spoiler, .FooterSpoiler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 700px;
+  background-color: transparent;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.FooterSpoiler {
+  width: 100%;
+}
+
+.SpoilerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #8FBF4D;
+  border-bottom: 1px solid #8FBF4D;
+  border-radius: 20px;
+}
+
+.SpoilerContent, .SpoilerContent.Hidden {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+.SpoilerContent.Hidden {
+  display: none;
+}
+
+.Contact {
+  border-top: 1px solid #8FBF4D;
+  border-bottom: 1px solid #8FBF4D;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=BoundTogether.css.map */
