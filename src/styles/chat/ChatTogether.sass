@@ -1,0 +1,142 @@
+.ChatWindow
+	display: grid
+	grid-template-columns: 1.1fr 0.6fr 1.6fr 0.8fr 0.9fr
+	grid-template-rows: 0.2fr 1.8fr
+	gap: 5px 5px
+	grid-template-areas: "FilterOptions FilterOptions ChatTitle UserInfo UserInfo" "ChatList ChatView ChatView ChatView ChatView"
+	width: calc(100vw - 50px) //1440px
+	height: calc(100vh - 50px)
+
+.FilterOptions
+	grid-area: FilterOptions
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+	border: 1px solid #ccc
+	border-radius: 5px
+	//display: flex
+	//align-items: flex-start
+	//justify-content: flex-start
+
+.ChatTitle
+	grid-area: ChatTitle
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+	border: 1px solid #ccc
+	border-radius: 5px
+	display: flex
+	flex-direction: row
+	justify-content: space-around
+	align-items: center
+
+.UserInfo
+	grid-area: UserInfo
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+	border: 1px solid #ccc
+	border-radius: 5px
+
+.ChatList
+	grid-area: ChatList
+	display: grid
+	align-items: center
+	justify-content: center
+	grid-auto-rows: 80px
+	grid-auto-columns: 95%
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+	border: 1px solid #ccc
+	border-radius: 5px
+	overflow-y: hidden
+	&:hover
+		overflow-y: scroll
+
+.ChatView
+	grid-area: ChatView
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+	border: 1px solid #ccc
+	border-radius: 5px
+	display: grid
+	grid-template-columns: 1fr
+	grid-template-rows: 4fr 0.5fr
+	grid-auto-columns: 1fr 1fr
+	grid-auto-rows: 1fr 1fr
+	gap: 5px 5px
+	grid-auto-flow: row
+	grid-template-areas: "MessageList" "ChatInput"
+
+.MessageList
+	grid-area: MessageList
+	display: flex
+	flex-direction: column
+	background-color: white
+	border-bottom: 1px solid #ccc
+	border-radius: 5px 5px 0 0
+	overflow-y: hidden
+	&:hover
+		overflow-y: scroll
+
+.ChatInput
+	grid-area: ChatInput
+	display: grid
+	grid-auto-columns: 1fr 1fr
+	grid-auto-rows: 1fr 1fr
+	grid-template-columns: 1fr 8fr 1fr
+	grid-template-rows: 1fr
+	gap: 5px 5px
+	grid-template-areas: "AttachFile MessageInput SendButton"
+	border-radius: 0 0 5px 5px
+	margin-bottom: 5px
+
+.AttachFile
+	grid-area: AttachFile
+	display: flex
+	align-items: center
+	justify-content: center
+	img
+		width: 50px
+		cursor: pointer
+
+.MessageInput
+	grid-area: MessageInput
+	border: 1px solid #ccc
+	margin: 5px
+	padding: 10px
+	min-height: 10px
+	max-height: 120px
+	text-align: left
+	white-space: pre-wrap
+	word-break: break-all
+	align-self: center
+	overflow-y: hidden
+	background-color: white
+	border-radius: 5px
+	&:hover
+		overflow-y: scroll
+
+.SendButton
+	display: flex
+	align-items: center
+	justify-content: space-around
+	flex-direction: column
+	grid-area: SendButton
+
+@mixin Message()
+	border: 1px solid #ccc
+	border-radius: 10px
+	margin: 5px
+	padding: 5px
+	min-height: 50px
+	min-width: 15%
+	max-width: 40%
+	text-align: left
+	white-space: pre-wrap
+	word-break: break-all
+
+.LeftMessage
+	@include Message
+	align-self: start
+	background-color: #edf0f2
+
+.RightMessage
+	@include Message
+	align-self: end
+	background-color: #C8CACC
+
+.MessageTime
+	text-align: right

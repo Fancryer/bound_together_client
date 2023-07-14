@@ -3,7 +3,7 @@ const HelpCard=({name,src,href=`https://www.google.com/search?q=${name?.replace(
 	return <div className="HelpCard">
 		<img alt={name} src={src}/>
 		{name}
-		<a href={href}>Подробнее</a>
+		<a href={href} className={"Link"}>Подробнее</a>
 	</div>;
 }
 

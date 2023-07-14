@@ -1,0 +1,42 @@
+@import "../Mixins.sass"
+
+.ChatPreview
+	padding: 5px
+	display: grid
+	grid-auto-columns: 1fr
+	gap: 5px 5px
+	grid-template: "ProfileImage ChatName ChatName SentTime" 1.5fr "ProfileImage SenderImage LastMessage LastMessage" 1.5fr / 1.5fr 1fr 3fr 1fr
+	//grid-template-areas: "ProfileImage ChatName ChatName SentTime" "ProfileImage SenderImage LastMessage LastMessage"
+	font-size: 11px
+	@include box-style
+
+.ProfileImage
+	grid-area: ProfileImage
+	@include centrify
+
+	img
+		@include box-border
+
+.SenderImage
+	grid-area: SenderImage
+	@include centrify
+
+	img
+		@include size(25px)
+		@include box-border
+		@include centrify
+
+.ChatName
+	grid-area: ChatName
+	@include box-style
+	@include flexify($justify: left)
+
+.LastSentTime
+	grid-area: SentTime
+	@include box-style
+	@include centrify
+
+.LastMessage
+	grid-area: LastMessage
+	@include box-style
+	@include centrify

@@ -1,0 +1,62 @@
+@import "Colors.sass"
+
+@mixin panel_shadow($spread:20px,$blur:2px)
+	box-shadow: 5px 5px $spread $blur rgb(0, 0, 0, .25)
+
+@mixin panel_corners($radius:20)
+	border-radius: #{$radius}px
+
+@mixin panel_base($radius:20)
+	@include panel_corners($radius)
+	@include panel_shadow
+
+@mixin highlight_vertical($color: $accent-color)
+	border-top: 1px solid $color
+	border-bottom: 1px solid $color
+
+@mixin highlight_horizontal($color: $accent-color)
+	border-left: 1px solid $color
+	border-right: 1px solid $color
+
+@mixin highlight_full($color: $accent-color)
+	@include highlight_horizontal($color)
+	@include highlight_vertical($color)
+
+@mixin flexify($direction: row, $justify: center, $align: center)
+	display: flex
+	flex-direction: $direction
+	justify-content: $justify
+	align-items: $align
+
+@mixin colors($front: $main-color,$back: $background-color)
+	color: $front
+	background-color: $back
+
+@mixin size($width: unset, $height: $width)
+	width: $width
+	height: $height
+
+@mixin size_min($min-width: unset, $min-height: $min-width)
+	min-width: $min-width
+	min-height: $min-height
+
+@mixin size_max($max-width: unset, $max-height: $max-width)
+	max-width: $max-width
+	max-height: $max-height
+
+@mixin size_range($min-width: unset, $max-width: unset, $min-height: $min-width, $max-height: $max-width)
+	@include size_min($min-width, $min-height)
+	@include size_max($max-width, $max-height)
+
+@mixin centrify()
+	@include flexify($justify: center, $align: center)
+
+@mixin box-style()
+	@include box-shadow
+	@include box-border
+
+@mixin box-shadow()
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+@mixin box-border()
+	border: 1px solid #ccc

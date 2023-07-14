@@ -13,8 +13,8 @@ const Navbar=()=>
 		switchHidden=()=>setHidden(!hidden);
 	return (
 		hidden
-		?<nav className={"Navbar"} style={{height:"25px",justifyContent:"center"}} onClick={switchHidden}>▼</nav>
-		:<nav className={"Navbar"} onClick={switchHidden}>
+		?<nav className={"Navbar"} onClick={switchHidden}>▼</nav>
+		:<nav className={"NavbarOpened"} onClick={switchHidden}>
 			<Link to={"#about"}>О проекте</Link>
 			<Link to={"#help"}>Виды помощи</Link>
 			▲

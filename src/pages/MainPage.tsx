@@ -14,7 +14,7 @@ import ReviewCarousel       from "../components/ReviewCarousel";
 import Spoiler              from "../components/Spoiler";
 import ReviewRate           from "../components/reviews/ReviewRate";
 import Contacts             from "../components/Contacts";
-
+import Logo                 from "../bound-together-high-resolution-logo-black-on-transparent-background.png";
 
 const MainPage=()=>
 {
@@ -34,7 +34,8 @@ const MainPage=()=>
 		<div className={"MainPageContent"}>
 			<section id={"about"}/>
 			<div className={"About"}>
-				<div id={"ProjectName"}>Lorem ipsum</div>
+				<div id={"ProjectName"}>Мы вместе</div>
+				<img src={Logo} alt={"Logo"} style={{width:"450px",height:"450px"}}/>
 				<Spacer/>
 				<RequestForm handleSubmit={handleSubmit}>
 					<label form={"request"}>Оставить заявку</label>
@@ -145,7 +146,7 @@ const MainPage=()=>
 			/>
 		</div>
 		<Spacer/>
-		<Footer copyright={"© 2023"} logo={""}/>
+		<Footer/>
 	</Page>;
 }
 export default MainPage

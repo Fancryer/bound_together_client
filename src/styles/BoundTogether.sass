@@ -1,128 +1,84 @@
-//мягкий зелёный
-$main-color: #519872
-//серый сине-зелёный
-$secondary-color: #30638E
-//светло-зелёный
-$accent-color: #8FBF4D
-//светло-серый
-$background-color: #F2F4F6
-//тёмно-серый
-$text-color: #333333
+@import "Mixins.sass"
 
 @font-face
 	font-family: "Aubrey Pro"
 	src: local("Aubrey Pro"), url("../fonts/Aubrey Pro/AubreyPro.otf")
 	font-weight: bold
 
-
-@mixin panel_shadow($spread:20px,$blur:2px)
-	box-shadow: 5px 5px $spread $blur rgb(0, 0, 0, .25)
-
-@mixin panel_corners($radius:20)
-	border-radius: #{$radius}px
-
-@mixin panel_base($radius:20)
-	@include panel_corners($radius)
-	@include panel_shadow
-
-@mixin highlight_vertical($color: $accent-color)
-	border-top: 1px solid $color
-	border-bottom: 1px solid $color
-
-@mixin highlight_horizontal($color: $accent-color)
-	border-left: 1px solid $color
-	border-right: 1px solid $color
-
-@mixin highlight_full($color: $accent-color)
-	@include highlight_horizontal($color)
-	@include highlight_vertical($color)
-
-
 .Page
-	display: flex
-	align-items: center
-	flex-direction: column
-	justify-content: space-evenly
-	background-color: $background-color
-	color: $text-color
+	@include flexify($direction: column, $justify: space-evenly)
+	@include colors($text-color, $background-color)
 	height: 100%
-	//font-family: "Arial", sans-serif
+	min-height: 100vh
 
 .Link
 	text-decoration: none
-	color: $background-color
+	color: $accent-color
+	@include box-shadow
 
 .Navbar
-	width: 100%
+	@include size(calc(100% - 2px), 25px)
+	@include flexify($direction: row, $justify: center, $align: center)
+	@include colors(#4b4b4b, white)
+	@include box-border
 	border-bottom-left-radius: 10px
 	border-bottom-right-radius: 10px
-	height: 75px
-	display: flex
-	align-items: center
-	justify-content: space-around
-	flex-direction: row
 	position: sticky
 	top: 0
-	background-color: $main-color
-	color: white
 
-	.Opened
-		@extend .Navbar
-		color: #282c34
+.NavbarOpened
+	@extend .Navbar
+	@include colors(#4b4b4b, white)
+	height: 75px
+	justify-content: space-around
 
 .Form
-	display: flex
-	flex-direction: column
+	@include flexify($direction: column, $justify: center, $align: stretch)
+	@include box-border
+	@include panel_base
+	border-color: $accent-color
 	border-radius: 10px
 	padding: 25px
 
 .Form.Request
 	background-color: $main-color
 
-
 .Footer
-	width: 100%
+	@include flexify($direction: row, $justify: space-around, $align: center)
+	@include colors(#4b4b4b, white)
+	@include size(calc(100% - 2px), 25px)
+	@include box-border
 	border-top-left-radius: 10px
 	border-top-right-radius: 10px
-	height: 75px
-	display: flex
-	align-items: center
-	justify-content: space-around
-	flex-direction: row
 	position: sticky
 	bottom: 0
-	background-color: $main-color
-	color: white
+
+.FooterOpened
+	@extend .Footer
+	@include colors(#4b4b4b, white)
+	height: 75px
+	justify-content: space-around
+	align-items: center
 
 .Input
 	width: 100%
 
 .About
-	display: flex
-	flex-direction: column
-	align-items: center
+	@include flexify($direction: column, $justify: center, $align: center)
 
 .MainPageContent
-	display: flex
-	flex-direction: column
-	align-items: center
-	justify-content: space-evenly
+	@include flexify($direction: column, $justify: space-evenly, $align: center)
 //height: calc(100vh - 200px)
 
 .HelpCard
-	display: flex
-	flex-direction: column
-	align-items: center
-	justify-content: space-evenly
-	height: 350px
-	width: 350px
+	@include flexify($direction: column, $justify: space-evenly, $align: center)
+	@include size(350px)
 	@include highlight_full
-	border-radius: 10px
 	@include panel_shadow(10px, 2px)
+	border-radius: 10px
 
 	img
-		height: 250px
-		width: 250px
+		@include size(250px)
 		border: 1px solid $accent-color
 		border-radius: 5px
 
@@ -131,13 +87,9 @@ $text-color: #333333
 	padding-bottom: 25px
 
 .ReviewCard
-	display: flex
-	flex-direction: column
-	align-items: center
-	justify-content: space-evenly
+	@include flexify($direction: column, $justify: space-evenly, $align: center)
 	min-height: 600px
 	width: 100%
-	//450px
 	@include highlight_full
 	border-radius: 10px
 	cursor: default
@@ -145,20 +97,16 @@ $text-color: #333333
 	@include panel_shadow(10px, 2px)
 
 	img
-		height: 250px
-		width: 250px
+		@include size(250px)
 		border: 1px solid $accent-color
 		border-radius: 5px
 
 .ReviewHeader
 	width: calc(100% - 20px)
-	display: flex
-	flex-direction: column
+	@include flexify($direction: column, $justify: center, $align: center)
 	min-height: 60px
 	padding-left: 10px
 	padding-right: 10px
-	align-items: center
-	justify-content: center
 
 .ReviewTheme
 	font-size: 24px
@@ -173,9 +121,7 @@ $text-color: #333333
 
 .ReviewText
 	width: 90%
-	display: flex
-	flex-direction: column
-	justify-content: center
+	@include flexify($direction: column, $justify: center, $align: center)
 	min-height: 50px
 	padding-top: 10px
 	padding-bottom: 10px
@@ -186,18 +132,13 @@ $text-color: #333333
 	margin-left: 25px
 
 .ReviewRate
-	display: flex
+	@include flexify($direction: row, $justify: right, $align: center)
+	cursor: pointer
 	width: 100%
 	margin-right: 25px
-	//margin-bottom: 25px
-	flex-direction: row
-	justify-content: right
-
 
 .Spoiler
-	display: flex
-	flex-direction: column
-	align-items: center
+	@include flexify($direction: column, $justify: unset, $align: center)
 	cursor: pointer
 	width: 700px
 	background-color: transparent
@@ -209,27 +150,19 @@ $text-color: #333333
 	width: 100%
 
 .SpoilerHeader
-	display: flex
-	align-items: center
-	justify-content: space-evenly
-	width: 100%
-	//450px
-	height: 50px
+	@include flexify($justify: space-evenly, $align: center)
+	@include size(100%, 50px)
 	@include highlight_vertical
 	@include panel_corners
 
 .SpoilerContent
-	display: flex
+	@include flexify($direction: column, $justify: space-evenly, $align: center)
 	width: 100%
-	flex-direction: column
-	align-items: center
-	justify-content: space-evenly
 	margin-top: 25px
 
 .SpoilerContent.Hidden
 	@extend .SpoilerContent
 	display: none
-
 
 .Contact
 	@include highlight_vertical
